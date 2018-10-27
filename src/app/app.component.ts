@@ -7,7 +7,7 @@ import { Router, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/route
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit  {
-  loadingLazyModule: boolean;
+  public loadingLazyModule: boolean;
 
   constructor (private router: Router) {}
 

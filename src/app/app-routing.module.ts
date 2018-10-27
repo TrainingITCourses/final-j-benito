@@ -2,12 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules, NoPreloading } from '@angular/router';
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/launchstatus', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: 'launchstatus',
-    loadChildren: './modules/launchstatus/launchstatus.module#LaunchstatusModule'
+    path: 'home',
+    loadChildren: './views/home/home.module#HomeModule'
   },
-  { path: '**', redirectTo: '/launchstatus', pathMatch: 'full' }
+  {
+    path: 'status',
+    loadChildren: './views/status/status.module#StatusModule'
+  },
+  {
+    path: 'launch',
+    loadChildren: './views/launch/launch.module#LaunchModule'
+  },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
