@@ -1,10 +1,23 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules, NoPreloading } from '@angular/router';
 
-const routes: Routes = [];
+export const appRoutes: Routes = [
+  { path: '', redirectTo: '/launchstatus', pathMatch: 'full' },
+  {
+    path: 'launchstatus',
+    loadChildren: './modules/launchstatus/launchstatus.module#LaunchstatusModule'
+  },
+  { path: '**', redirectTo: '/launchstatus', pathMatch: 'full' }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(appRoutes, {
+      preloadingStrategy: NoPreloading
+    })
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }
