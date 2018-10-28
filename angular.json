@@ -135,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "final-j-benito"
+  "defaultProject": "final-j-benito",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

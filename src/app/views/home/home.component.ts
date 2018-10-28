@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { State } from '@app/core/reducers';
 
 @Component({
   selector: 'app-home',
@@ -6,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public launchStatus: any[];
 
-  constructor() { }
+  constructor(private store: Store<State>) { }
 
   ngOnInit() {
-    console.log('entras home');
+    this.store
+      .select('data')
+      .subscribe(data => {
+        this.launchStatus = data.status;
+        console.log('asdfas', this.launchStatus);
+      });
   }
 
 }
