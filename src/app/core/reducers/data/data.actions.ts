@@ -13,7 +13,8 @@ export class LoadStatus implements Action {
 
 export class StatusLoaded implements Action {
   readonly type = DataActionTypes.StatusLoaded;
-  constructor(readonly statusPayload: any[]) {}
+
+  constructor(readonly payload: any[]) {console.log('entra', payload)}
 }
 
 export class LoadLaunches implements Action {
@@ -22,7 +23,7 @@ export class LoadLaunches implements Action {
 
 export class LaunchesLoaded implements Action {
   readonly type = DataActionTypes.LaunchesLoaded;
-  constructor(readonly launchesPayload: any[]) {}
+  constructor(readonly payload: any[]) {}
 }
 
 export type DataActions =
