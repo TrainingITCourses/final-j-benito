@@ -11,6 +11,8 @@ import { reducers, metaReducers } from '@app/core/reducers';
 import { environment } from '@env/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { LaunchStatusEffects } from '@app/core/reducers/launch-status/launch-status.effects';
+import { LaunchesEffects } from '@app/core/reducers/launches/launches.effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { LaunchStatusEffects } from '@app/core/reducers/launch-status/launch-sta
     ShellModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([LaunchStatusEffects])
+    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
+    EffectsModule.forRoot([LaunchStatusEffects, LaunchesEffects])
   ],
   providers: [],
   bootstrap: [

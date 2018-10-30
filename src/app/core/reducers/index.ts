@@ -5,17 +5,21 @@ import {
   createSelector,
   MetaReducer
 } from '@ngrx/store';
+import { routerReducer } from '@ngrx/router-store';
+
 import { environment } from '@env/environment';
-import * as fromData from './data/data.reducer';
+import * as fromLaunches from './launches/launches.reducer';
 import * as fromLaunchStatus from './launch-status/launch-status.reducer';
 
 export interface State {
-  data: fromData.DataState;
+  router: any;
+  launches: fromLaunches.LaunchesState;
   launchStatus: fromLaunchStatus.LaunchStatusState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  data: fromData.reducer,
+  router: routerReducer,
+  launches: fromLaunches.reducer,
   launchStatus: fromLaunchStatus.reducer,
 };
 

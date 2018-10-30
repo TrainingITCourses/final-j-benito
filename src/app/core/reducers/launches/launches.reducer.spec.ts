@@ -1,6 +1,6 @@
-import { reducer, initialState } from './data.reducer';
+import { reducer, initialState } from './launches.reducer';
 
-describe('Data Reducer', () => {
+describe('Launches Reducer', () => {
   describe('unknown action', () => {
     it('should return the initial state', () => {
       const action = {} as any;

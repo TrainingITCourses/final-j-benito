@@ -3,15 +3,15 @@ import { Actions, Effect } from '@ngrx/effects';
 import { LaunchesService } from '@app/core/services';
 import { mergeMap, map } from 'rxjs/operators';
 
-import { LaunchesLoaded, DataActionTypes, StatusLoaded } from './data.actions';
+import { LaunchesLoaded, LaunchesActionTypes } from './launches.actions';
 
 @Injectable()
-export class DataEffects {
+export class LaunchesEffects {
 
 
   @Effect()
   public loadLaunches$ = this.actions$
-    .ofType(DataActionTypes.LoadLaunches)
+    .ofType(LaunchesActionTypes.LoadLaunches)
     .pipe(
       mergeMap(() =>
         this.launchesService

@@ -1,9 +1,23 @@
 <main>
   <header>
-    <h1>Most important heading here</h1>
+    <ng-container *ngIf="stateUrl?.includes('home')">
+      <h1> Listado de Estados de lanzamientos </h1>
+      <h2> Número de lanzamientos: {{ launchesNumber }} </h2>
+    </ng-container>
+
+    <ng-container *ngIf="stateUrl?.includes('status')">
+      <h1>status</h1>
+    </ng-container>
+
+    <ng-container *ngIf="stateUrl?.includes('launch')">
+      <h1>launch</h1>
+    </ng-container>
+
     <hr/>
   </header>
+
   <section>
     <ng-content></ng-content>
   </section>
+
 </main>

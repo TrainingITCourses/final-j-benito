@@ -2,21 +2,21 @@ import { TestBed, inject } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
 
-import { DataEffects } from './data.effects';
+import { LaunchesEffects } from './launches.effects';
 
-describe('DataEffects', () => {
+describe('LaunchesEffects', () => {
   let actions$: Observable<any>;
-  let effects: DataEffects;
+  let effects: LaunchesEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        DataEffects,
+        LaunchesEffects,
         provideMockActions(() => actions$)
       ]
     });
 
-    effects = TestBed.get(DataEffects);
+    effects = TestBed.get(LaunchesEffects);
   });
 
   it('should be created', () => {
