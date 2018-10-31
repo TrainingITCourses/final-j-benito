@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { State } from '@app/core/reducers';
+import { LoadSelectedLaunchStatus } from '@app/core/reducers/selected-launch-status/selected-launch-status.actions';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,6 @@ export class HomeComponent implements OnInit {
       .select('launchStatus')
       .subscribe(payload => {
         this.launchStatus = payload.launchStatus;
-        console.log('asdfas', this.launchStatus);
       });
   }
 

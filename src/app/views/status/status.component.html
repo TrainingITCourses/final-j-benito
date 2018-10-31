@@ -1,3 +1,8 @@
-<p>
-  status works!
+<h3> Resultados disponibles: {{ filteredLaunches.length }} </h3>
+
+<button (click)="sortLaunches()">Ordenar {{ sortOrder ? '\\/' : '/\\' }}</button>
+
+<p *ngFor="let launches of filteredLaunches">
+  {{ launches.name }} ({{ launches.windowstart }}) -
+  <a [routerLink]="['/launch', launches.id]">Link</a>
 </p>

@@ -11,8 +11,10 @@ import { LoadLaunchStatus } from '@app/core/reducers/launch-status/launch-status
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
-  public launchesNumber: number;
   public stateUrl: string;
+  public launchesNumber: number;
+  public selectedLaunchStatusName: string;
+  public selectedLaunchName: string;
 
   constructor(private store: Store<State>) { }
 
@@ -30,6 +32,18 @@ export class ShellComponent implements OnInit {
     .select('router')
     .subscribe(router => {
         this.stateUrl = router ? router.state.url : null;
+    });
+
+    this.store
+    .select('selectedLaunchStatus')
+    .subscribe(payload => {
+      this.selectedLaunchStatusName = payload.status.name;
+    });
+
+    this.store
+    .select('selectedLaunch')
+    .subscribe(payload => {
+      this.selectedLaunchName = payload.launch.name;
     });
   }
 

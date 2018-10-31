@@ -8,11 +8,11 @@ export const appRoutes: Routes = [
     loadChildren: './views/home/home.module#HomeModule'
   },
   {
-    path: 'status',
+    path: 'status/:id',
     loadChildren: './views/status/status.module#StatusModule'
   },
   {
-    path: 'launch',
+    path: 'launch/:id',
     loadChildren: './views/launch/launch.module#LaunchModule'
   },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }

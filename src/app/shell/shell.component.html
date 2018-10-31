@@ -1,16 +1,18 @@
 <main>
   <header>
     <ng-container *ngIf="stateUrl?.includes('home')">
-      <h1> Listado de Estados de lanzamientos </h1>
+      <h1> Listado de estados de lanzamientos </h1>
       <h2> Número de lanzamientos: {{ launchesNumber }} </h2>
     </ng-container>
 
     <ng-container *ngIf="stateUrl?.includes('status')">
-      <h1>status</h1>
+      <h1> Estado </h1>
+      <h2> Nombre: {{ selectedLaunchStatusName }} </h2>
     </ng-container>
 
     <ng-container *ngIf="stateUrl?.includes('launch')">
-      <h1>launch</h1>
+      <h1> Detalle de lanzamiento </h1>
+      <h2> Nombre: {{ selectedLaunchName }} </h2>
     </ng-container>
 
     <hr/>

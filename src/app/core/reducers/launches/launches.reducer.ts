@@ -1,4 +1,3 @@
-import { Action } from '@ngrx/store';
 import { LaunchesActionTypes, LaunchesActions } from './launches.actions';
 
 export interface LaunchesState {

@@ -1,8 +1,4 @@
-<p>
-  home works!
-</p>
-
 <p *ngFor="let status of launchStatus">
   {{ status.name }} -
-  <a [routerLink]="['/status']">Link</a>
+  <a [routerLink]="['/status', status.id]">Link</a>
 </p>
