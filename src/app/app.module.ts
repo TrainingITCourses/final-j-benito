@@ -13,6 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { LaunchStatusEffects } from '@app/core/reducers/launch-status/launch-status.effects';
 import { LaunchesEffects } from '@app/core/reducers/launches/launches.effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
-    EffectsModule.forRoot([LaunchStatusEffects, LaunchesEffects])
+    EffectsModule.forRoot([LaunchStatusEffects, LaunchesEffects]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [

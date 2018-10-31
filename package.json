@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
+    "http": "npm run build && http-server -c-1 dist/final-j-benito",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -19,11 +20,13 @@
     "@angular/http": "~7.0.0",
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
+    "@angular/pwa": "^0.10.3",
     "@angular/router": "~7.0.0",
-    "@ngrx/effects": "^6.1.1",
-    "@ngrx/router-store": "^6.1.1",
-    "@ngrx/store": "^6.1.1",
-    "@ngrx/store-devtools": "^6.1.1",
+    "@angular/service-worker": "~7.0.0",
+    "@ngrx/effects": "^6.1.2",
+    "@ngrx/router-store": "^6.1.2",
+    "@ngrx/store": "^6.1.2",
+    "@ngrx/store-devtools": "^6.1.2",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
@@ -34,7 +37,7 @@
     "@angular/cli": "~7.0.3",
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
-    "@ngrx/schematics": "^6.1.1",
+    "@ngrx/schematics": "^6.1.2",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -49,6 +52,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "^3.1.4"
+    "typescript": "^3.1.5"
   }
 }
