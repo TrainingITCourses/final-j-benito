@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { BehaviorSubject } from 'rxjs';
 
 import { State } from '@app/core/reducers';
 import { ActivatedRoute } from '@angular/router';
 import { LoadSelectedLaunchStatus } from '@app/core/reducers/selected-launch-status/selected-launch-status.actions';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-status',
   templateUrl: './status.component.html',
   styleUrls: ['./status.component.scss']
 })
 export class StatusComponent implements OnInit {
-  public selectedLaunchStatus: any;
   public filteredLaunches: any[];
+  public filteredLaunches$: BehaviorSubject<any[]> = new BehaviorSubject([]);
   public sortOrder: boolean;
 
   constructor(private route: ActivatedRoute,
@@ -25,8 +27,8 @@ export class StatusComponent implements OnInit {
       this.store
         .select('launchStatus')
         .subscribe(payload => {
-          this.selectedLaunchStatus = payload.launchStatus.find(status => status.id === statusId);
-          this.store.dispatch(new LoadSelectedLaunchStatus(this.selectedLaunchStatus));
+          const selectedLaunchStatus = payload.launchStatus.find(status => status.id === statusId);
+          this.store.dispatch(new LoadSelectedLaunchStatus(selectedLaunchStatus));
         });
 
       this.store
@@ -36,6 +38,7 @@ export class StatusComponent implements OnInit {
           this.filteredLaunches = launches.filter(
             launch => launch.status === statusId
           );
+          this.filteredLaunches$.next(this.filteredLaunches);
         });
     });
   }

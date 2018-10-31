@@ -1,18 +1,18 @@
 <main>
   <header>
-    <ng-container *ngIf="stateUrl?.includes('home')">
+    <ng-container *ngIf="(stateUrl$ | async)?.includes('home')">
       <h1> Listado de estados de lanzamientos </h1>
-      <h2> Número de lanzamientos: {{ launchesNumber }} </h2>
+      <h2> Número de lanzamientos: {{ launchesNumber$ | async }} </h2>
     </ng-container>
 
-    <ng-container *ngIf="stateUrl?.includes('status')">
+    <ng-container *ngIf="(stateUrl$ | async)?.includes('status')">
       <h1> Estado </h1>
-      <h2> Nombre: {{ selectedLaunchStatusName }} </h2>
+      <h2> Nombre: {{ selectedLaunchStatusName$ | async }} </h2>
     </ng-container>
 
-    <ng-container *ngIf="stateUrl?.includes('launch')">
+    <ng-container *ngIf="(stateUrl$ | async)?.includes('launch')">
       <h1> Detalle de lanzamiento </h1>
-      <h2> Nombre: {{ selectedLaunchName }} </h2>
+      <h2> Nombre: {{ selectedLaunchName$ | async }} </h2>
     </ng-container>
 
     <hr/>

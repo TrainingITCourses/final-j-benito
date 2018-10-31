@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { BehaviorSubject } from 'rxjs';
 
 import { State } from '@app/core/reducers';
-import { LoadSelectedLaunchStatus } from '@app/core/reducers/selected-launch-status/selected-launch-status.actions';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public launchStatus: any[];
+  public launchStatus$: BehaviorSubject<any[]> = new BehaviorSubject([]);
 
   constructor(private store: Store<State>) { }
 
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.store
       .select('launchStatus')
       .subscribe(payload => {
-        this.launchStatus = payload.launchStatus;
+        this.launchStatus$.next(payload.launchStatus);
       });
   }
 

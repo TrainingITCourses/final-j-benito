@@ -1,4 +1,4 @@
-<p *ngFor="let status of launchStatus">
+<p *ngFor="let status of launchStatus$ | async">
   {{ status.name }} -
   <a [routerLink]="['/status', status.id]">Link</a>
 </p>

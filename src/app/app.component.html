@@ -1,4 +1,6 @@
 <app-shell>
   <ng-container *ngIf="loadingLazyModule">Loading lazy module...</ng-container>
-  <router-outlet></router-outlet>
+  <ng-container *ngIf="!loadingLazyModule">
+    <router-outlet></router-outlet>
+  </ng-container>
 </app-shell>
