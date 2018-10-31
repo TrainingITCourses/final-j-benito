@@ -11,7 +11,7 @@ export const initialState: SelectedLaunchState = {
 
 export function reducer(state = initialState, action: SelectedLaunchActions): SelectedLaunchState {
   switch (action.type) {
-    case SelectedLaunchActionTypes.LoadSelectedLaunchs:
+    case SelectedLaunchActionTypes.LoadSelectedLaunch:
       return { ...state, launch: action.payload };
     default:
       return state;

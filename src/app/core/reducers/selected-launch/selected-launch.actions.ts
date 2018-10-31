@@ -1,12 +1,12 @@
 import { Action } from '@ngrx/store';
 
 export enum SelectedLaunchActionTypes {
-  LoadSelectedLaunchs = '[SelectedLaunch] Load SelectedLaunchs'
+  LoadSelectedLaunch = '[SelectedLaunch] Load SelectedLaunch'
 }
 
-export class LoadSelectedLaunchs implements Action {
-  readonly type = SelectedLaunchActionTypes.LoadSelectedLaunchs;
+export class LoadSelectedLaunch implements Action {
+  readonly type = SelectedLaunchActionTypes.LoadSelectedLaunch;
   constructor(readonly payload: any[]) {}
 }
 
-export type SelectedLaunchActions = LoadSelectedLaunchs;
+export type SelectedLaunchActions = LoadSelectedLaunch;

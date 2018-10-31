@@ -37,13 +37,17 @@ export class ShellComponent implements OnInit {
     this.store
     .select('selectedLaunchStatus')
     .subscribe(payload => {
-      this.selectedLaunchStatusName = payload.status.name;
+      if (payload && payload.status) {
+        this.selectedLaunchStatusName = payload.status.name;
+      }
     });
 
     this.store
     .select('selectedLaunch')
     .subscribe(payload => {
-      this.selectedLaunchName = payload.launch.name;
+      if (payload && payload.launch) {
+        this.selectedLaunchName = payload.launch.name;
+      }
     });
   }
 
